@@ -13,6 +13,18 @@ public class Groups {
 	Integer gid;
 	List<String> members;
 
+	public Groups() {
+		/*this.name = "";
+		this.gid = 0;
+		this.members = new ArrayList<>();*/
+	}
+
+	public Groups(String name, Integer gid, List<String> members) {
+		this.name = name;
+		this.gid = gid;
+		this.members = members;
+	}
+
 	/**
 	 * @return the name
 	 */

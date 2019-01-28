@@ -23,6 +23,16 @@ public class Users {
 		shell = "";
 	}
 
+	public Users(String name, Integer uid, Integer gid, String comment, String home, String shell) {
+		super();
+		this.name = name;
+		this.uid = uid;
+		this.gid = gid;
+		this.comment = comment;
+		this.home = home;
+		this.shell = shell;
+	}
+
 	/**
 	 * @return the name
 	 */

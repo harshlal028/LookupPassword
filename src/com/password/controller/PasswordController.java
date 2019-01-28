@@ -101,7 +101,6 @@ public class PasswordController {
 	@RequestMapping(value = "/users/{uid}", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Users getUser(@PathVariable("uid") Integer uid) throws java.lang.Exception {
 		Users user = serviceObj.getUser(uid);
-		user = null;
 		if (user == null)
 			throw new java.lang.Exception("Content not found");
 		return user;

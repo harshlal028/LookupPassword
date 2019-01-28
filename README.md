@@ -11,3 +11,5 @@ A sample web project using Spring Framework
 
 # Example Usage
 TODO:
+- add password file to environment variable ```PASSWORD_FILE```, defaults to /etc/passwd
+- add group file to environment variable ```GROUP_FILE``` defaults to /etc/groups
