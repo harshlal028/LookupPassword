@@ -53,8 +53,9 @@ public class HttpResponse implements IResponse {
 
 		if (status == FAILURE) {
 			httpstatus = HttpStatus.NOT_ACCEPTABLE;
+		} else if (status == NOT_FOUND) {
+			httpstatus = HttpStatus.NOT_FOUND;
 		}
-
 		return new ResponseEntity<String>(getJsonResponse(setResponse(status, responseCode, detail)), httpstatus);
 	}
 

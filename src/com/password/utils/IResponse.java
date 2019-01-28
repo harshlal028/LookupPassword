@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 public interface IResponse {
 	public final int SUCCESS = 0;
 	public final int FAILURE = 1;
+	public final int NOT_FOUND = 2;
 
 	/**
 	 * Method to send Http Response
