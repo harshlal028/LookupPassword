@@ -47,7 +47,7 @@ public class FileReadUtility {
 		}
 		return group;
 	}
-	
+
 	private Users parseUser(String userLine) {
 		Users user = null;
 		if (userLine == null || userLine.trim().isEmpty()) {
@@ -67,7 +67,7 @@ public class FileReadUtility {
 			String comment;
 			String home;
 			String shell;
-			
+
 			name = parts[0];
 			uid = Integer.parseInt(parts[2]);
 			gid = Integer.parseInt(parts[3]);
@@ -95,7 +95,7 @@ public class FileReadUtility {
 		}
 		return groupList;
 	}
-	
+
 	public List<Users> reloadUsers(String filename) throws FileNotFoundException, IOException {
 		List<Users> userList = new ArrayList<>();
 		Users user = null;
@@ -110,42 +110,43 @@ public class FileReadUtility {
 		}
 		return userList;
 	}
-	
+
 	public String getGroupFile() {
 		String default_file = "/etc/groups";
 		String current_file = System.getenv("GROUP_FILE");
-		if(new File(current_file).isFile())
-		{
-			return current_file;
-		}
-		else if(new File(default_file).isFile())
-		{
-			return default_file;
-		}
-		return null;
-	}
-	
-	public String getPasswordFile() {
-		String default_file = "/etc/passwd";
-		String current_file = System.getenv("PASSWORD_FILE");
-		if(new File(current_file).isFile())
-		{
-			return current_file;
-		}
-		else if(new File(default_file).isFile())
-		{
-			return default_file;
+		try {
+			if (current_file != null && new File(current_file).isFile()) {
+				return current_file;
+			} else if (new File(default_file).isFile()) {
+				return default_file;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
 
-	/*public static void main(String[] args) throws FileNotFoundException, IOException {
-		FileReadUtility obj = new FileReadUtility();
-		List<Users> u = obj.reloadUsers("password.txt");
-		List<Groups> g = obj.reloadGroups("group.txt");
-		System.out.println(u.size()+" == "+g.size());
-		String javaHome = System.getenv("PATH");
-		System.out.println(javaHome);
-	}*/
-	
+	public String getPasswordFile() {
+		String default_file = "/etc/passwd";
+		String current_file = System.getenv("PASSWORD_FILE");
+		try {
+			if (current_file != null && new File(current_file).isFile()) {
+				return current_file;
+			} else if (new File(default_file).isFile()) {
+				return default_file;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/*
+	 * public static void main(String[] args) throws FileNotFoundException,
+	 * IOException { FileReadUtility obj = new FileReadUtility(); List<Users> u =
+	 * obj.reloadUsers("password.txt"); List<Groups> g =
+	 * obj.reloadGroups("group.txt"); System.out.println(u.size()+" == "+g.size());
+	 * String javaHome = System.getenv("PATH"); System.out.println(javaHome); }
+	 */
+
 }
