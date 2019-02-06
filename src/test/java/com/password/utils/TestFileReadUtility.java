@@ -23,14 +23,13 @@ public class TestFileReadUtility {
 	}
 	
 	@Test
-	public void testParseUser() throws FileNotFoundException, IOException {
+	public void testReloadUser() throws FileNotFoundException, IOException {
 		Assert.assertEquals(obj.reloadUsers("src/test/java/com/password/utils/password").size(),6);
 	}
 	
 	@Test
-	public void testParseGroup() throws FileNotFoundException, IOException {
+	public void testReloadGroup() throws FileNotFoundException, IOException {
 		Assert.assertEquals(obj.reloadGroups("src/test/java/com/password/utils/group").size(),2);
 	}
 	
-
 }
