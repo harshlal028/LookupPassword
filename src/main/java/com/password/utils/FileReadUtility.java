@@ -13,6 +13,11 @@ import java.util.List;
 import com.password.models.Groups;
 import com.password.models.Users;
 
+/**
+ * The utility that reads files.
+ * @author harsh
+ *
+ */
 public class FileReadUtility {
 
 	private Groups parseGroup(String groupLine) {

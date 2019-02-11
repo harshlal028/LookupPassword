@@ -15,12 +15,12 @@ public class Users {
 	String shell;
 
 	public Users() {
-		name = "";
+		/*name = "";
 		uid = 0;
 		gid = 0;
 		comment = "";
 		home = "";
-		shell = "";
+		shell = "";*/
 	}
 
 	public Users(String name, Integer uid, Integer gid, String comment, String home, String shell) {

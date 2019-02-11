@@ -99,10 +99,13 @@ public class PasswordController {
 	 * @throws java.lang.Exception
 	 */
 	@RequestMapping(value = "/users/{uid}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody Users getUser(@PathVariable("uid") Integer uid) throws java.lang.Exception {
+	public @ResponseBody Users getUser(@PathVariable("uid") Integer uid) throws Exception {
 		Users user = serviceObj.getUser(uid);
 		if (user == null)
-			throw new java.lang.Exception("Content not found");
+		{
+			logger.info("User not found");
+			throw new Exception("Content not found");
+		}
 		return user;
 	}
 
@@ -153,11 +156,22 @@ public class PasswordController {
 	 * @throws java.lang.Exception
 	 */
 	@RequestMapping(value = "/groups/{gid}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody Groups getGroups(@PathVariable("gid") Integer gid) throws java.lang.Exception {
+	public @ResponseBody Groups getGroups(@PathVariable("gid") Integer gid) throws Exception {
 		Groups group = serviceObj.getGroup(gid);
 		if (group == null)
-			throw new java.lang.Exception("Content not found");
+		{
+			logger.info("Group not found");
+			throw new Exception("Content not found");
+		}
 		return group;
+	}
+
+	public void setRespHandle(IResponse respHandle) {
+		this.respHandle = respHandle;
+	}
+
+	public void setServiceObj(IPasswordService serviceObj) {
+		this.serviceObj = serviceObj;
 	}
 
 }
